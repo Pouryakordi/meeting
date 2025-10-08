@@ -1,129 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Consultation | Pourya Kordi</title>
-  <style>
-    :root {
-      --primary-color: #007bff;
-      --background-color: #0a0a0a;
-      --text-color: #e0e0e0;
-      --card-background: #1a1a1a;
-      --border-color: #333;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Consultation | Pourya Kordi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #050505;
+            --primary-accent-color: #007BFF;
+            --text-color: #EAEAEA;
+            --secondary-text-color: #A0A0A0;
+            --card-background-color: #121212;
+            --border-color: #2D2D2D;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 2rem 1rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    .container {
-      max-width: 600px;
-      width: 100%;
-    }
+        .container {
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+        }
 
-    .profile {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      border: 3px solid var(--primary-color);
-    }
+        .profile {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid var(--primary-accent-color);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
+        }
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
 
-    .step-arrow {
-      font-size: 1.5rem;
-      margin: 1.5rem 0;
-      opacity: 0.6;
-    }
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 2.5rem;
+        }
 
-    .btn {
-      display: inline-block;
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.2s, background-color 0.2s;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-accent-color);
+            color: #FFFFFF;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
 
-    .btn:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-    }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
 
-    .card {
-      background-color: var(--card-background);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
+        .process {
+            margin-top: 4rem;
+            text-align: left;
+        }
 
-    .card strong {
-      color: #fff;
-    }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
 
-    footer {
-      margin-top: 3rem;
-      color: #777;
-      font-size: 0.9rem;
-    }
+        .step-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-accent-color);
+            margin-right: 1rem;
+            min-width: 20px;
+        }
 
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-  </style>
+        .step-content h2 {
+            font-size: 1.2rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--text-color);
+        }
+
+        .step-content p {
+            font-size: 1rem;
+            color: var(--secondary-text-color);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        footer {
+            margin-top: 4rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <img src="Profile.jpg" alt="Pourya Kordi" class="profile" />
+    <div class="container">
+        <header>
+            <img src="Profile.jpg" alt="Pourya Kordi" class="profile" />
+            <h1>Ready to build with AI?</h1>
+            <p class="subtitle">Let's solve your project challenges together.</p>
+            <button class="btn" data-cal-link="pourya/45min">Book Your Consultation</button>
+        </header>
 
-    <h1>Need Help With Your AI Project?</h1>
+        <main class="process">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h2>Secure Your Session</h2>
+                    <p>A <strong>$250</strong> payment confirms your one-hour consultation. I’ll provide payment details after you select a time.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h2>Receive Your Invite</h2>
+                    <p>Once confirmed, you'll get a meeting link in your inbox 15 minutes before our scheduled time.</p>
+                </div>
+            </div>
+        </main>
 
-    <button class="btn" data-cal-link="pourya/45min">Book a Consultation</button>
-
-    <div class="step-arrow">↓</div>
-
-    <div class="card">
-      <strong>Confirm Your Booking</strong><br />
-      A payment of <strong>$250</strong> secures your 1-hour session. Payment details will be sent after you book.
+        <footer>
+            © 2025 Pourya Kordi
+        </footer>
     </div>
 
-    <div class="step-arrow">↓</div>
-
-    <div class="card">
-      <strong>Get Your Meeting Link</strong><br />
-      Once confirmed, you'll receive a meeting link 15 minutes before our session.
-    </div>
-
-    <footer>© 2025 Pourya Kordi</footer>
-  </div>
-
-  <script>
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", { origin: "https://app.cal.com" });
-    Cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
-  </script>
+    <script>
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", { origin: "https://app.cal.com" });
+        Cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+    </script>
 </body>
 </html>
