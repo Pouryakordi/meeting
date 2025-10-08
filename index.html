@@ -5,73 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Consultation | Pourya Kordi</title>
   <style>
+    :root {
+      --primary-color: #007bff;
+      --background-color: #0a0a0a;
+      --text-color: #e0e0e0;
+      --card-background: #1a1a1a;
+      --border-color: #333;
+    }
+
     body {
-      font-family: "Inter", system-ui, sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
       margin: 0;
-      padding: 0;
+      padding: 2rem 1rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 3rem 1rem;
+      max-width: 600px;
+      width: 100%;
     }
 
-    img.profile {
-      width: 140px;
-      height: 140px;
+    .profile {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid #1e90ff;
+      margin-bottom: 1.5rem;
+      border: 3px solid var(--primary-color);
     }
 
     h1 {
       font-size: 1.8rem;
       font-weight: 600;
       margin-bottom: 2rem;
-      color: #eaeaea;
     }
 
-    .arrow {
-      font-size: 2rem;
+    .step-arrow {
+      font-size: 1.5rem;
       margin: 1.5rem 0;
-      animation: bounce 1.5s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
+      opacity: 0.6;
     }
 
     .btn {
       display: inline-block;
-      background-color: #1e90ff;
+      background-color: var(--primary-color);
       color: white;
       padding: 1rem 2.5rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      border-radius: 12px;
+      border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s;
+      transition: transform 0.2s, background-color 0.2s;
     }
 
     .btn:hover {
-      background-color: #007bff;
+      background-color: #0056b3;
+      transform: scale(1.05);
     }
 
-    .box {
-      background-color: #1a1a1a;
-      border: 1px solid #333;
+    .card {
+      background-color: var(--card-background);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 1.5rem;
       margin: 1rem 0;
       font-size: 1rem;
       line-height: 1.6;
-      color: #ddd;
+    }
+
+    .card strong {
+      color: #fff;
     }
 
     footer {
@@ -81,7 +89,7 @@
     }
 
     a {
-      color: #1e90ff;
+      color: var(--primary-color);
       text-decoration: none;
     }
   </style>
@@ -89,54 +97,33 @@
 
 <body>
   <div class="container">
-    <!-- PROFILE -->
-    <img src="Profile.jpg" alt="Your photo" class="profile" />
+    <img src="Profile.jpg" alt="Pourya Kordi" class="profile" />
 
-    <!-- HEADLINE -->
-    <h1>Hey 👋 Need help with your AI project?</h1>
+    <h1>Need Help With Your AI Project?</h1>
 
-    <!-- DOWN ARROW -->
-    <div class="arrow">⬇️</div>
+    <button class="btn" data-cal-link="pourya/45min">Book a Consultation</button>
 
-    <!-- BOOK BUTTON -->
-    <button class="btn" id="book-btn" data-cal-link="pourya/45min" data-cal-namespace="45min" data-cal-config='{"layout":"month_view"}'>Book a time on the calendar</button>
+    <div class="step-arrow">↓</div>
 
-    <!-- DOWN ARROW -->
-    <div class="arrow">⬇️</div>
-
-    <!-- PAYMENT BOX -->
-    <div class="box">
-      <strong>To confirm your booking:</strong><br />
-      Please send a payment of <strong>$250</strong> using the crypto address or PayPal link I’ll provide after we confirm the slot.<br />
-      This secures your 1-hour consultation session.
+    <div class="card">
+      <strong>Confirm Your Booking</strong><br />
+      A payment of <strong>$250</strong> secures your 1-hour session. Payment details will be sent after you book.
     </div>
 
-    <!-- DOWN ARROW -->
-    <div class="arrow">⬇️</div>
+    <div class="step-arrow">↓</div>
 
-    <!-- MEETING BOX -->
-    <div class="box">
-      Once your booking and payment are confirmed, I’ll send your meeting link
-      directly to your inbox <strong>15 minutes before</strong> the scheduled time.
+    <div class="card">
+      <strong>Get Your Meeting Link</strong><br />
+      Once confirmed, you'll receive a meeting link 15 minutes before our session.
     </div>
 
-    <footer>© 2025 [Your Name]</footer>
+    <footer>© 2025 Pourya Kordi</footer>
   </div>
 
-    <!-- Cal element-click embed code begins -->
-<script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "45min", {origin:"https://app.cal.com"});
-
-  
-  // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
-  // `data-cal-link="pourya/45min"`
-  // data-cal-namespace="45min"
-  // `data-cal-config='{"layout":"month_view"}'`
-
-  Cal.ns["45min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  <script>
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", { origin: "https://app.cal.com" });
+    Cal("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
   </script>
-  <!-- Cal element-click embed code ends -->
-
 </body>
 </html>
