@@ -10,6 +10,7 @@
     <style>
         :root {
             --background-color: #0A0A0A;
+            --card-background-color: #121212;
             --primary-accent-color: #007BFF;
             --text-color: #EAEAEA;
             --secondary-text-color: #A0A0A0;
@@ -19,23 +20,36 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--background-color);
-            /* New: Subtle corner glows for a minimal background effect */
             background-image: 
                 radial-gradient(at 0% 0%, hsla(212, 92%, 15%, 0.2) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, hsla(212, 92%, 10%, 0.2) 0px, transparent 50%);
             color: var(--text-color);
             margin: 0;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem; /* This padding creates the "page borders" */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* New: This is the main card element */
+        .page-card {
+            background-color: var(--card-background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 580px;
+            width: 100%;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
         }
 
         .container {
             max-width: 550px;
             width: 100%;
             text-align: center;
+            margin: 0 auto; /* Ensures container is centered within the card */
         }
 
         .profile {
@@ -59,7 +73,7 @@
             font-size: 1.1rem;
             color: var(--secondary-text-color);
             margin-bottom: 3.5rem;
-            max-width: 450px; /* Ensures subtitle text wraps nicely */
+            max-width: 450px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -136,49 +150,67 @@
         }
 
         footer {
-            margin-top: 3rem;
+            margin-top: 1rem; /* Adjusted margin for better spacing inside card */
+            padding-top: 2rem;
             color: #666;
             font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            body {
+                padding: 0;
+                align-items: flex-start; /* Align to top on mobile */
+            }
+            .page-card {
+                border-radius: 0;
+                border: none;
+                padding: 3rem 1.5rem;
+                box-shadow: none;
+                min-height: 100vh;
+                background-color: transparent; /* Seamless look on mobile */
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="Profile.jpg" alt="Pourya Kordi" class="profile" />
-            <!-- New, more intriguing messaging -->
-            <h1>Need Help With Your AI Project?</h1>
-            <p class="subtitle">Get expert, actionable solutions. Fast.</p>
-        </header>
+    <div class="page-card">
+        <div class="container">
+            <header>
+                <img src="Profile.jpg" alt="Pourya Kordi" class="profile" />
+                <h1>Need Help With Your AI Project?</h1>
+                <p class="subtitle">Get expert, actionable solutions. Fast.</p>
+            </header>
 
-        <main class="process">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h2>Book a Time</h2>
-                    <p>Select a slot on the calendar that works for you.</p>
-                    <button class="btn" data-cal-link="pourya/45min">Book a Time</button>
+            <main class="process">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h2>Book a Time</h2>
+                        <p>Select a slot on the calendar that works for you.</p>
+                        <button class="btn" data-cal-link="pourya/45min">Book a Time</button>
+                    </div>
                 </div>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h2>Confirm Your Spot</h2>
-                    <p>A <strong>$250</strong> payment secures your one-hour session. Details are sent after booking.</p>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h2>Confirm Your Spot</h2>
+                        <p>A <strong>$250</strong> payment secures your one-hour session. Details are sent after booking.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h2>Join the Call</h2>
-                    <p>You'll receive a meeting link right before our scheduled session.</p>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h2>Join the Call</h2>
+                        <p>You'll receive a meeting link right before our scheduled session.</p>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
 
-        <footer>
-            © 2025 Pourya Kordi
-        </footer>
+            <footer>
+                © 2025 Pourya Kordi
+            </footer>
+        </div>
     </div>
 
     <script>
